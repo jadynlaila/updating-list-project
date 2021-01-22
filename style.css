@@ -1,0 +1,43 @@
+
+html{
+    background-color: rgb(212, 222, 235);
+    font-family: 'Raleway', sans-serif;
+}
+
+textarea{
+    resize: none;
+    height: 1.1em;
+    overflow: hidden;
+}
+
+form{
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+    "section1  section2";
+}
+
+.section1{
+    grid-area: section1;
+    grid-row: 0/1;
+}
+
+.section2{
+    grid-area: section2;
+    grid-row: 1/2;
+}
+
+.dob{
+    width: 150px;
+}
+
+.leavingDate{
+    width: 150px;
+}
+
+.returningDate{
+    width: 150px;
+}
+

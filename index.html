@@ -8,41 +8,73 @@
     <meta property='og: image' content=''>
     <meta property='og: title' content=''>
     <meta property='og: description' content=''>
-    <title>Boiler Plate</title>
+    <title>Passenger Travel Form</title>
     <link rel='stylesheet' href='style.css'>
     <link rel='shortcut icon' href='Untitled.png', type='image/x-icon'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="information">
-        <p class="firstName">*First Name:</p>
-        <textarea name="firstName" id="firstName" placeholder="First Name" class="firstName"></textarea>
+    
+    <form action="" method="POST">
         
-        <p class="lastName">*Last Name:</p>
-        <textarea name="firstName" id="firstName" placeholder="Last Name" class="lastName"></textarea>
+        <!-- <div class="information"> -->
+            <!-- <h1>Passenger Travel Form</h1> -->
+            <div class="section1">
+                <p class="firstName">*First Name:</p>
+                <textarea name="firstName" id="firstName" placeholder="First Name" class="firstName"></textarea>
+                
+                <p class="lastName">*Last Name:</p>
+                <textarea name="firstName" id="firstName" placeholder="Last Name" class="lastName"></textarea>
+                
+                <p class="dob">*Date of Birth</p>
+                <form action="/action_page.php">
+                    <input type="date" id="dob" name="dob" class="dob">
+                </form>
+                
+                <p class="pointA">*Departure City:</p>
+                <textarea name="pointA" id="pointA" placeholder="City, State (Phoenix, AZ)" class="pointA"></textarea>
+
+                <p class="pointB">*Arrival City:</p>
+                <textarea name="pointB" id="pointB" placeholder="City, State (Atlanta, GA)" class="pointB"></textarea>
+            </div>
+            <div class="section2"
+            <p class="leavingDate">*Date Leaving:</p>
+            <form action="/action_page.php">
+                <input type="date" id="leavingDate" name="leavingDate" class="leavingDate">
+            </form>
+    <!-- check for month date year by splitting at / || , || - and then checking that the date is not above or below a certain point -->
+            <p class="returningDate">*Date Returning:</p>
+            <form action="/action_page.php">
+                <input type="date" id="returningDate" name="returningDate" class="returningDate">
+            </form>
+
+            <p class="bags">Bag Count:</p>
+            <input type="number" id="bags" name="tentacles" class="bags" placeholder="#" min="0">
+
+            <p class="meal">What kind of meal would you like?</p>
+            <input type="radio" id="chicken" name="meal" value="male">
+            <label for="chicken">Chicken</label><br>
+            <input type="radio" id="fish" name="meal" value="female" >
+            <label for="fish">Fish</label><br>
+            <input type="radio" id="vegetarian" name="meal" value="other">
+            <label for="vegetarian">Vegetarian</label>   
+            
+            <p class="extras">Extras:</p>
+            <input type="checkbox" id="legRoom" name="vehicle1" value="legRoom">
+            <label for="legRoom"> I have a bike</label><br>
+            <input type="checkbox" id="windowSeat" name="vehicle2" value="windowSeat">
+            <label for="windowSeat"> I have a car</label><br>
+            <input type="checkbox" id="headPhones" name="vehicle3" value="headPhones">
+            <label for="headPhones"> I have a boat</label><br>  
+            <input type="checkbox" id="secondMeal" name="vehicle3" value="secondMeal">
+            <label for="secondMeal"> I have a boat</label><br>  
+
+            <p>* is required</p>
+            <button onclick="submit()">Submit</button>
+        <!-- </div> -->
         
-        <p class="dob">*Date of Birth</p>
-        <textarea name="dob" id="dob" placeholder="(MM/DD/YYYY)" class="dob"></textarea>
-        
-        <p class="pointA">*Departure City:</p>
-        <textarea name="pointA" id="pointA" placeholder="Departure City" class="pointA"></textarea>
-
-        <p class="pointB">*Arrival City:</p>
-        <textarea name="pointB" id="pointB" placeholder="Arrival City" class="pointB"></textarea>
-
-        <p class="leavingDate">*Date Leaving:</p>
-        <textarea name="leavingDate" id="leavingDate" placeholder="(MM/DD/YYYY") class="leavingDate"></textarea>
-/////check for month date year by splitting at / || , || - and then checking that the date is not above or below a certain point
-        <p class="returningDate">*Date Returning:</p>
-        <textarea name="returningDate" id="returningDate" placeholder="returningDate" class="returningDate"></textarea>
-
-        <p class="bags">Bag Count:</p>
-        <textarea name="bags" id="bags" placeholder="needs to be button" class="bags"></textarea>
-
-        <p class="meal">Meal plan:</p>
-        <textarea name="meal" id="meal" placeholder="needs to be button" class="meal"></textarea>
-        
-        <p class="extras">Extras:</p>
-        <textarea name="extras" id="extras" placeholder="needs to be button" class="extras"></textarea>
-    </div>
+    </form>
+    
 </body>
 </html>
