@@ -38,26 +38,51 @@ function addPassenger(){
     let meal = document.getElementById("meal").value;
     let extras = document.getElementById("extras").value;
 
-    if(firstName != "" && lastName != ""){
+    if(firstName != "" && lastName != "" && dob != "" && pointA != "" && pointB != "" && leavingDate != "" &&  returningDate != ""){
         let passenger = new Passenger(firstName, lastName, idCount);
         idCount++;
         passengerList.push(passenger);
         ///to reset ..
-        document.getElementById("firstName").value = "";
-        document.getElementById("lastName").value = "";
+        // document.getElementById("firstName").value = "";
+        // document.getElementById("lastName").value = "";
     }
+    if(bags == ""){
+        bags = "n/a";
+    }
+    if(meal == ""){
+        meal = "n/a";
+    }
+    if (extras == ""){
+        extras = "n/a"
+    }
+    console.log(passengerList);
 }
-
 function print(){
     let space = document.getElementById("printSpace");
     space.innerHTML = "";
-    for(let i = 0; i < userList.length; i++){
-        space.innerHTML += `<div><span>${userList[i].ID}</span> ${userList[i].firstName} ${userList[i].lastName}</div>`
-    }
+    // for(let i = 0; i < passengerList.length; i++){
+    //     space.innerHTML += `<div>${passengerList[i].firstName.value} ${passengerList[i].lastName.value} ${passengerList[i].dob.value} ${passengerList[i].pointA.value} ${passengerList[i].pointB.value} ${passengerList[i].leavingDate.value} ${passengerList[i].returninDate.value} ${passengerList[i].bags.value} ${passengerList[i].meal.value} ${passengerList[i].extras.value}</div>`
+    // }
+    // for(let i = 0; i < passengerList.length; i++){
+    //     document.getElementById("firstNamePrint").textContent = `First name: ${passengerList[i].firstName}`;
+    //     document.getElementById("lastNamePrint").textContent = passengerList[i].lastName;
+    //     document.getElementById("dobPrint").textContent = passengerList[i].dob;
+    //     document.getElementById("departingPrint").textContent = passengerList[i].pointA;
+    //     document.getElementById("arrivingPrint").textContent = passengerList[i].pointB;
+    //     document.getElementById("leavingPrint").textContent = passengerList[i].leavingDate;
+    //     document.getElementById("returningPrint").textContent = passengerList[i].returningDate;
+    //     ///need to calculat4e trip duration and put here
+    //     document.getElementById("bagsPrint").textContent = passengerList[i].bags;
+    //     document.getElementById("mealPrint").textContent = passengerList[i].meal;
+    //     document.getElementById("extrasPrint").textContent = passengerList[i].extras;
+    //     ///need to calculate trip cose and print
+    //     ///need to calculatee age and print
+    // }
 }
 
 function check21(){
     //needs to run when people submit
+
 }
 
 function extraCosts(){
@@ -68,4 +93,3 @@ function tripTime(){
     //needs to run when submitted 
 }
 
-let pass1 = new Passenger("Jadyn", "Calhoun", 2384798);
