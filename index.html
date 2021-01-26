@@ -142,14 +142,14 @@
         </div>
         <div class="col space">
             <label for="bags" class="bags">How many bags?</label>
-            <input type="number" class="bags" name="bags" id="bags" placeholder="#">
+            <input type="number" class="bags" name="bags" id="bags" placeholder="#" min=0>
         </div>
         <label for="meal" class="lessspace">What kind of meal would you like?</label>
         <div class="col space">
             <div class="meals">
                 <div>
                     <label for="chicken">Chicken</label>
-                    <input checked type="radio" name="meal" id="meal" value="chicken">
+                    <input type="radio" name="meal" id="meal" value="chicken">
                 </div>
                 <div>
                     <label for="fish">Fish</label>
@@ -164,7 +164,7 @@
         <label for="extra" class="lessspace">Order your extras (only 10$ each!)</label>
         <div class="col extras lessspace">
             <label for="legroom">Extra Leg Room?</label>
-            <input checked type="checkbox" name="extras" id="extras" value="legroom">
+            <input type="checkbox" name="extras" id="extras" value="legroom">
         </div>
         <div class="col extras lessspace">
             <label for="window">Window Seat?</label>
@@ -176,7 +176,7 @@
         </div>
         <div class="col extras space">
             <label for="moreFood">Second Serving of Meal?</label>
-            <input checked type="checkbox" name="extras" id="extras" value="food">
+            <input type="checkbox" name="extras" id="extras" value="food">
         </div>
 
         <button onclick="addPassenger()">Submit Passenger Info</button>
@@ -237,7 +237,7 @@
             <p>Extras:</p>
             <input id="outextras" type="text">
             <p style="margin-left: 20px;">Cost:</p>
-            <p id="outcost" style="margin-left: 10px;">$300</p>
+            <p id="outcost" style="margin-left: 10px;"></p>
         </div>
         <button onclick="updateList()">Submit Changes</button>
         <div id="success"></div>
