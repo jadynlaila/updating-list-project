@@ -79,11 +79,16 @@ function addPassenger() {
         cost = cost + bagsCost;
         console.log(cost);
     }
-    for (let i = 0; i < document.getElementsByName(extras).checked; i++) {
-        let extrasArr = [];
-        extrasArr.push[i];
+    for (let i = 0; i < document.getElementsByName("extras").length; i++) {
+        console.log("hello");
+        if (document.getElementById("extras").checked) {
+            console.log(`${i} is checked`);
+            let extrasArr = [];
+            extrasArr.push(i);
+            console.log(extrasArr);
+        }
         // let extrasArr = [];
-        // if (document.getElementsByName(extras).checked){
+        // if (document.getElementsByName(extras).checked)
         //     extrasArr.push[i];
         // }
         // console.log(extrasArr);
@@ -91,6 +96,7 @@ function addPassenger() {
         // console.log('hello');
     }
 }
+
 function print() {
     let space = document.getElementById("printSpace");
     space.innerHTML = "";
@@ -113,12 +119,14 @@ function print() {
     //     ///need to calculatee age and print
     // }
 }
+
 function search() {
     //ok all items in an array will have their id and each button will have a corresponding number, then when they select their name it will 
     //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
 
 
 }
+
 function check21() {
     //needs to run when people submit
 
