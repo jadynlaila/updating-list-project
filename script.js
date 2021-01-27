@@ -2,9 +2,12 @@
 
 //print out function should do first and last name as well as id 
 
-//////need to fix the bgs going below 0
+//////need to fix age and figure out how to do date
+
+/////////////////////////////////////////////////////////////////////////////
+//remember to set outmeal equal to mealArr and same thinf with extras and such
 class Passenger {
-    constructor(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, age, cost) {
+    constructor(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, age, finalCost) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idCount = idCount;
@@ -17,7 +20,15 @@ class Passenger {
         this.meal = meal;
         this.extras = extras;
         this.age = age;
-        this.cost = cost;
+        this.finalCost = finalCost;
+    }
+    calculateAge() {
+        let birthday = new Date(this.dob);
+        let now = Date.now();
+        let age = now - birthday.getTime();
+        age = age / (1000 * 60 * 60 * 24 * 365);
+        age = Math.floor(age);
+        this.age = age
     }
 }
 
@@ -38,29 +49,31 @@ function addPassenger() {
     let leavingDate = document.getElementById("leavingDate").value;
     let returningDate = document.getElementById("returningDate").value;
     let bags = document.getElementById("bags").value;
-    let extras = document.getElementById("extras").value;
-    let meal = document.getElementById("meal").value;
-    let age = 0;
-    let cost = 300;
+    let extras = findExtras().join(", ");
+    let meal = findMeals().join(", ");
+    let finalCost = calculateCost();
 
     if (firstName != "" && lastName != "" && dob != "" && pointA != "" && pointB != "" && leavingDate != "" && returningDate != "") {
-        let passenger = new Passenger(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, age, cost);
+        let passenger = new Passenger(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, finalCost);
         idCount++;
+        passenger.calculateAge();
         passengerList.push(passenger);
-        ///to reset ..
-        // document.getElementById("firstName").value = "";
-        // document.getElementById("lastName").value = "";
-        // document.getElementById("dob").value = "";
-        // document.getElementById("pointA").value = "";
-        // document.getElementById("pointB").value = "";
-        // document.getElementById("leavingDate").value = "";
-        // document.getElementById("returningDate").value = "";
-        // document.getElementById("bags").value = "";
-        // document.getElementById("extras").value = "";
-        // document.getElementById("meal").value = "";
+        //to reset
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("dob").value = "";
+        document.getElementById("pointA").value = "";
+        document.getElementById("pointB").value = "";
+        document.getElementById("leavingDate").value = "";
+        document.getElementById("returningDate").value = "";
+        document.getElementById("bags").value = "";
+        document.getElementsByName("extras").value = "";
+        document.getElementsByName("meal").value = "";
         // document.getElementById("age").value = "";
-        // document.getElementById("cost").value = "";  
-    }
+        finalCost = 0;
+    }//else{
+    //     alert("enter all required information");
+    // }
     if (bags == "") {
         bags = "n/a";
     }
@@ -68,33 +81,73 @@ function addPassenger() {
         meal = "n/a";
     }
     if (extras == "") {
-        extras = "n/a"
+        extras = 300;
     }
     console.log(passengerList);
     for (let i = 0; i < passengerList.length; i++) {
         let bagsCost = 0;
+        let cost = 300;
         if (bags.value != 0) {
             bagsCost = bags * 20;
         }
         cost = cost + bagsCost;
         console.log(cost);
     }
-    for (let i = 0; i < document.getElementsByName("extras").length; i++) {
-        console.log("hello");
-        if (document.getElementById("extras").checked) {
-            console.log(`${i} is checked`);
-            let extrasArr = [];
-            extrasArr.push(i);
-            console.log(extrasArr);
-        }
-        // let extrasArr = [];
-        // if (document.getElementsByName(extras).checked)
-        //     extrasArr.push[i];
-        // }
-        // console.log(extrasArr);
-        // console.log(extras);
-        // console.log('hello');
+}
+
+function findExtras() {
+    let extrasArr = [];
+    if (document.getElementById("extras1").checked) {
+        console.log(`legroom is checked`);
+        extrasArr.push(document.getElementById("extras1").value);
     }
+    if (document.getElementById("extras2").checked) {
+        console.log(`window is checked`);
+        extrasArr.push(document.getElementById("extras2").value);
+    }
+    if (document.getElementById("extras3").checked) {
+        console.log(`headphones is checked`);
+        extrasArr.push(document.getElementById("extras3").value);
+    }
+    if (document.getElementById("extras4").checked) {
+        console.log(`more food is checked`);
+        extrasArr.push(document.getElementById("extras4").value);
+    }
+    console.log(extrasArr);
+    return extrasArr;
+}
+function findMeals() {
+    let mealArr = [];
+    if (document.getElementById("meal1").checked) {
+        console.log(`chicken is selected`);
+        mealArr.push(document.getElementById("meal1").value);
+    }
+    if (document.getElementById("meal2").checked) {
+        console.log(`fish is selected`);
+        mealArr.push(document.getElementById("meal2").value);
+    }
+    if (document.getElementById("meal3").checked) {
+        console.log(`veggie is selected`);
+        mealArr.push(document.getElementById("meal3").value);
+    }
+    return mealArr;
+}
+function calculateBagsCost() {
+    for (let i = 0; i < passengerList.length; i++) {
+        let bagsCost = 0;
+        let cost = 300;
+        if (bags.value != 0) {
+            bagsCost = bags * 20;
+        }
+        cost = cost + bagsCost;
+        console.log(cost);
+        return bagsCost;
+    }
+}
+function calculateCost() {
+    let extrasCost = findExtras().length * 10;
+    finalCost = calculateBagsCost() + extrasCost;
+    return finalCost;
 }
 
 function print() {
@@ -132,10 +185,6 @@ function check21() {
 
 }
 
-function findCosts() {
-
-
-}
 
 function tripTime() {
     //needs to run when submitted 
@@ -143,3 +192,4 @@ function tripTime() {
 
 ////notes for self for next similar project
 //in html, for a checkbox like "extras", i shouldve made the names the same, then i shouldve on line 40 searched instead by names. then made each id different so that i could check which ids were checked bcs easier
+//make clear spot for variable initialization
