@@ -1,64 +1,14 @@
-/* 
-html{
-    background-color: rgb(212, 222, 235);
-    font-family: 'Raleway', sans-serif;
-}
-
-textarea{
-    resize: none;
-    height: 1.1em;
-    overflow: hidden;
-}
-
-form{
-    display: grid;
-    /* justify-content: center; */
-    /* grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
-    grid-template-areas:
-    "section1  section2";
-}
-
-.section1{
-    grid-area: section1;
-    grid-row: 0/1;
-}
-
-.section2{
-    grid-area: section2;
-    grid-row: 1/2;
-}
-
-.dob{
-    width: 150px;
-}
-
-.leavingDate{
-    width: 150px;
-}
-
-.returningDate{
-    width: 150px;
-}
-
-#printSpace{
-    display: flex;
-    float: left;
-} */
-
-
-/* check unit 3 logging project to make ... or ___ between values when printed */
-
 *, ::after, ::before {
     padding: 0;
     margin: 0;
 }
- 
+
 html {
-    background-color: black;
+    background-color: rgb(202, 213, 226);
     color: white;
+    font-family: 'Raleway', sans-serif;
 }
- 
+
 body {
     display: flex;
     flex-direction: row;
@@ -66,7 +16,7 @@ body {
     justify-content: space-evenly;
     margin: auto auto;
 }
- 
+
 .first-col {
     background-color: rgb(248, 231, 199);
     flex: 278px 0 0;
@@ -76,15 +26,15 @@ body {
     justify-content: center;
     align-items: center;
 }
- 
+
 * {
     color: black;
 }
- 
+
 h4 {
     margin-bottom: 40px;
 }
- 
+
 input {
     width: 90%;
     margin-bottom: 10px;
@@ -93,7 +43,7 @@ input {
     background-color: rgba(0, 0, 0, 0%);
     margin-top: 3px;
 }
- 
+
 .second-col {
     background-color: rgb(248, 241, 229);
     flex: 520px 0 0;
@@ -103,35 +53,35 @@ input {
     padding-top: 125px;
     margin-left: 10px;
 }
- 
+
 .col {
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
 }
- 
+
 .col label, .col input {
     flex: 125px 0 0;
 }
- 
+
 .space {
     margin-bottom: 20px;
 }
- 
+
 .lessspace {
     margin-bottom: 5px;
 }
- 
+
 .col label.bags {
     flex: 150px 0 0;
     align-self: start;
 }
- 
+
 .col input.bags {
     flex: 70px 0 0;
 }
- 
+
 .meals {
     width: 90%;
     display: flex;
@@ -139,86 +89,87 @@ input {
     justify-content: space-between;
     align-items: center
 }
- 
+
 .col .meals div label {
     flex: 20px 0 0;
     align-items: center;
     margin-bottom: 0;
 }
- 
+
 .col .meals div input {
     flex: 20px 0 0;
     align-items: center;
     margin-bottom: 0;
 }
- 
+
 .extras label {
     flex: 170px 0 0;
     align-items: center;
     margin-bottom: 0;
 }
- 
+
 .extras input {
     flex: 20px 0 0;
     align-items: center;
     margin-bottom: 0;
 }
- 
+
 button {
     font-size: larger;
     color: white;
     background: rgb(60, 149, 184);
 }
- 
+
 select {
     height: 1.45em;
 }
- 
+
 #print {
     height: 1.20rem;
     font-size: small;
     margin-left: 10px;
 }
- 
-.second-col .col label{
+
+.second-col .col label {
     flex: 100px 0 0;
 }
-.second-col .col input{
+
+.second-col .col input {
     flex: 125px 0 0;
 }
- 
-.row{
+
+.row {
     display: flex;
     flex-direction: row;
     width: 90%
 }
- 
-.row input{
+
+.row input {
     margin-left: 10px;
 }
-.bags{
+
+.bags {
     height: 1.1rem;
 }
- 
-#names{
+
+#names {
     margin-top: 30px;
     columns: 1;
     width: 90%;
 }
- 
-span{
+
+span {
     margin-right: 5px;
     padding-right: 5px;
     border-right: 1px solid black;
 }
- 
-#success{
+
+#success {
     height: 1.5rem;
     font-size: 1.5rem;
 }
- 
-#outreturnDate, #outleaveDate{
+
+#outreturnDate, #outleaveDate {
     width: 129px;
-    margin:0px 5px;
+    margin: 0px 5px;
 }
- 
