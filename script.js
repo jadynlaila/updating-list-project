@@ -30,6 +30,14 @@ class Passenger {
         age = Math.floor(age);
         this.age = age
     }
+    calculateFinalCost() {
+        let finalCost = calculateExtrasCost() + calculateBagsCost() + 300;
+        console.log(finalCost);
+        console.log(calculateExtrasCost());
+        console.log(calculateBagsCost());
+        console.log(finalCost);
+        this.finalCost = finalCost;
+    }
 }
 
 
@@ -51,12 +59,12 @@ function addPassenger() {
     let bags = document.getElementById("bags").value;
     let extras = findExtras().join(", ");
     let meal = findMeals().join(", ");
-    let finalCost = calculateCost();
-
+    // let finalCost = calculateFinalCost();
     if (firstName != "" && lastName != "" && dob != "" && pointA != "" && pointB != "" && leavingDate != "" && returningDate != "") {
-        let passenger = new Passenger(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, finalCost);
+        let passenger = new Passenger(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras);
         idCount++;
         passenger.calculateAge();
+        passenger.calculateFinalCost();
         passengerList.push(passenger);
         //to reset
         document.getElementById("firstName").value = "";
@@ -70,8 +78,7 @@ function addPassenger() {
         document.getElementsByName("extras").value = "";
         document.getElementsByName("meal").value = "";
         // document.getElementById("age").value = "";
-        finalCost = 0;
-    }//else{
+    } //else{
     //     alert("enter all required information");
     // }
     if (bags == "") {
@@ -84,15 +91,6 @@ function addPassenger() {
         extras = 300;
     }
     console.log(passengerList);
-    for (let i = 0; i < passengerList.length; i++) {
-        let bagsCost = 0;
-        let cost = 300;
-        if (bags.value != 0) {
-            bagsCost = bags * 20;
-        }
-        cost = cost + bagsCost;
-        console.log(cost);
-    }
 }
 
 function findExtras() {
@@ -116,6 +114,7 @@ function findExtras() {
     console.log(extrasArr);
     return extrasArr;
 }
+
 function findMeals() {
     let mealArr = [];
     if (document.getElementById("meal1").checked) {
@@ -132,23 +131,28 @@ function findMeals() {
     }
     return mealArr;
 }
+
 function calculateBagsCost() {
-    for (let i = 0; i < passengerList.length; i++) {
-        let bagsCost = 0;
-        let cost = 300;
-        if (bags.value != 0) {
-            bagsCost = bags * 20;
-        }
-        cost = cost + bagsCost;
-        console.log(cost);
-        return bagsCost;
-    }
+    let bagsCost = 20 * bags.value;
+    console.log(bagsCost);
+    return bagsCost;
 }
-function calculateCost() {
+
+
+function calculateExtrasCost() {
     let extrasCost = findExtras().length * 10;
-    finalCost = calculateBagsCost() + extrasCost;
-    return finalCost;
+    return extrasCost;
 }
+// console.log(calculateExtrasCost());
+
+// function calculateFinalCost() {
+//     let finalCost = calculateExtrasCost() + calculateBagsCost() + 300;
+//     console.log(finalCost);
+//     console.log(calculateExtrasCost());
+//     console.log(calculateBagsCost());
+//     return finalCost;
+// }
+// calculateFinalCost();
 
 function print() {
     let space = document.getElementById("printSpace");
