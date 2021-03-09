@@ -47,7 +47,7 @@ class Passenger {
 }
 
 
-//next ~25 lines copied from other project, edited
+//next ~25 lines originally copied from other project, edited
 
 let passengerList = [];
 let idCount = 1;
@@ -143,10 +143,10 @@ function findMeals() {
 
 function findFullName(){
     let fullName = []
-    let firstName = firstName.value;
-    let lastName = lastName.value; 
-    fullName.push(firstName);
-    fullName.push(lastName);
+    // let firstName = firstName.value;
+    // let lastName = lastName.value; 
+    fullName.value.push(firstName);
+    fullName.value.push(lastName);
     console.log(fullName);
     return fullName;
 }
@@ -169,11 +169,9 @@ function search() {
     //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
     ///always searching first last name
     let fullNameArr = findFullName();
+
     console.log(fullNameArr);
-    // let inputName = document.getElementById("search").value;
-    // let nameArr = name.split("");
-    // console.log(nameArr);
-    // console.log(nameArr.length);
+    
 }
 
 
