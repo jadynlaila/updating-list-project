@@ -95,14 +95,17 @@
     <div class="second-col">
         <div class="col space">
             <button id="print " onclick="search()">Search</button>
-            <input id="search" style="margin-left: 10px;" type="text" placeholder="first last">
-            <p style="margin-left: 10px;">Sort By:</p>
+            <!-- <input id="search" style="margin-left: 10px;" type="text" placeholder="first last"> -->
+            <select style="margin-left: 10px;" id="search">
+                <option id="blankSearch" value="blank">first last</option>
+            </select>
+            <!-- <p style="margin-left: 10px;">Sort By:</p>
             <select style="margin-left: 10px;" name="users" id="dropDown">
                 <option value="id">ID</option>
                 <option value="firstName">First Name</option>
                 <option value="lastName">Last Name</option>
             </select>
-            <button onclick="print()" id="print">Print All Names</button>
+            <button onclick="print()" id="print">Print All Names</button> -->
         </div>
         <div class="col">
             <label for="firstName">First Name</label>

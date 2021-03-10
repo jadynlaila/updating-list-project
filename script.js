@@ -2,7 +2,7 @@
 /////////////////////////////////////////////////////////////////////////////
 //remember to set outmeal equal to mealArr and same thinf with extras and such
 class Passenger {
-    constructor(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, age, finalCost, tripDuration, check21) {
+    constructor(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras, age, finalCost, tripDuration, check21, fullName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.idCount = idCount;
@@ -13,6 +13,7 @@ class Passenger {
         this.returningDate = returningDate;
         this.bags = bags;
         this.meal = meal;
+        this.fullName = fullName;
         this.extras = extras;
         this.age = age;
         this.finalCost = finalCost;
@@ -30,27 +31,93 @@ class Passenger {
         let finalCost = calculateExtrasCost() + calculateBagsCost() + 300;
         this.finalCost = finalCost;
     }
-    calculateTripDuration(){
+    calculateTripDuration() {
         let leaving = new Date(this.leavingDate);
         let returning = new Date(this.returningDate);
         let tripDuration = returning.getTime() - leaving.getTime();
         tripDuration = tripDuration / (1000 * 60 * 60 * 24);
         this.tripDuration = tripDuration;
     }
-    check21(){
-        if(this.age >= 21){
+    check21() {
+        if (this.age >= 21) {
             this.check21 = "Can drink";
-        }else{
+        } else {
             this.check21 = "Cannot drink";
         }
     }
+
+    findFullName() {
+        let fullName = [];
+        fullName.push(this.firstName);
+        fullName.push(this.lastName);
+        console.log(fullName);
+        fullName = fullName.join(" ");
+        this.fullName = fullName;
+    }
 }
+let passengerList = [];
 
 
+let sample1 = new Passenger();
+sample1.firstName = 'jake';
+sample1.lastName = 'd';
+sample1.idCount = 1;
+sample1.dob = '2003-02-17';
+sample1.pointA = "Phoenix, AZ";
+sample1.pointB = 'Los Angeles, CA';
+sample1.leavingDate = '2021-03-10';
+sample1.returningDate = '2021-03-21';
+sample1.extras = '';
+sample1.meal = ''
+sample1.fullName = 'jake d';
+sample1.age = 18;
+sample1.finalCost = 300;
+sample1.tripDuration = 11;
+sample1.bags = '';
+sample1.check21 = 'Cannot drink'
+passengerList.push(sample1);
+
+let sample2 = new Passenger();
+sample2.firstName = 'don';
+sample2.lastName = 'f';
+sample2.idCount = 2;
+sample2.dob = '2004-02-17';
+sample2.pointA = "Phoenix, AZ";
+sample2.pointB = 'New York, NY';
+sample2.leavingDate = '2021-03-11';
+sample2.returningDate = '2021-03-21';
+sample2.extras = '';
+sample2.meal = ''
+sample2.fullName = 'don f';
+sample2.age = 17;
+sample2.finalCost = 300;
+sample2.tripDuration = 10;
+sample2.bags = '';
+sample2.check21 = 'Cannot drink'
+passengerList.push(sample2);
+
+let sample3 = new Passenger();
+sample3.firstName = 'aaron';
+sample3.lastName = 'h';
+sample3.idCount = 3;
+sample3.dob = '2000-02-18';
+sample3.pointA = "New York, NY";
+sample3.pointB = 'Phoenix, AZ';
+sample3.leavingDate = '2021-03-10';
+sample3.returningDate = '2021-03-21';
+sample3.extras = '';
+sample3.meal = ''
+sample3.fullName = 'aaron h';
+sample3.age = 21;
+sample3.finalCost = 300;
+sample3.tripDuration = 11;
+sample3.bags = '';
+sample3.check21 = 'Can drink'
+passengerList.push(sample3);
+console.log(passengerList);
 //next ~25 lines originally copied from other project, edited
 
-let passengerList = [];
-let idCount = 1;
+let idCount = 4;
 
 function addPassenger() {
     ////checks that everything != "", that dates are in correct format, things can = "" if not required
@@ -72,7 +139,7 @@ function addPassenger() {
     document.getElementById("meal1").checked = false;
     document.getElementById("meal2").checked = false;
     document.getElementById("meal3").checked = false;
-    
+
     // let finalCost = calculateFinalCost();
     if (firstName != "" && lastName != "" && dob != "" && pointA != "" && pointB != "" && leavingDate != "" && returningDate != "") {
         let passenger = new Passenger(firstName, lastName, idCount, dob, pointA, pointB, leavingDate, returningDate, bags, meal, extras);
@@ -81,6 +148,7 @@ function addPassenger() {
         passenger.calculateFinalCost();
         passenger.calculateTripDuration();
         passenger.check21();
+        passenger.findFullName();
         passengerList.push(passenger);
         //to reset
         document.getElementById("firstName").value = "";
@@ -108,8 +176,17 @@ function addPassenger() {
         extras = 300;
     }
     console.log(passengerList);
+    updateList();
+
 }
 
+
+function updateList() {
+    let list = document.getElementById('search');
+    let option = document.createElement('option');
+    option.text = passenger.fullName;
+    list.add(option);
+}
 function findExtras() {
     let extrasArr = [];
     if (document.getElementById("extras1").checked) {
@@ -141,15 +218,6 @@ function findMeals() {
     return mealArr;
 }
 
-function findFullName(){
-    let fullName = []
-    // let firstName = firstName.value;
-    // let lastName = lastName.value; 
-    fullName.value.push(firstName);
-    fullName.value.push(lastName);
-    console.log(fullName);
-    return fullName;
-}
 
 function calculateBagsCost() {
     let bagsCost = 20 * bags.value;
@@ -168,10 +236,8 @@ function search() {
     //ok all items in an array will have their id and each button will have a corresponding number, then when they select their name it will 
     //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
     ///always searching first last name
-    let fullNameArr = findFullName();
-
-    console.log(fullNameArr);
-    
+    // let fullNameArr = findFullName();
+    // console.log(fullNameArr);
 }
 
 
