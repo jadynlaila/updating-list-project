@@ -57,7 +57,7 @@ class Passenger {
 }
 let passengerList = [];
 
-
+let list = document.getElementById('search');
 let sample1 = new Passenger();
 sample1.firstName = 'jake';
 sample1.lastName = 'd';
@@ -115,6 +115,7 @@ sample3.bags = '';
 sample3.check21 = 'Can drink'
 passengerList.push(sample3);
 console.log(passengerList);
+
 //next ~25 lines originally copied from other project, edited
 
 let idCount = 4;
@@ -182,11 +183,17 @@ function addPassenger() {
 
 
 function updateList() {
-    let list = document.getElementById('search');
-    let option = document.createElement('option');
-    option.text = passenger.fullName;
-    list.add(option);
+    // let list = document.getElementById('search');
+    for (let i = 0; i < passengerList.length; i++) {
+        console.log(passengerList[i].fullName);
+        let option = document.createElement('option');
+        option.text = passengerList[i].fullName;
+        list.add(option);
+    }
+
 }
+
+
 function findExtras() {
     let extrasArr = [];
     if (document.getElementById("extras1").checked) {
@@ -232,36 +239,42 @@ function calculateExtrasCost() {
 
 
 
+// function search() {
+//     //ok all items in an array will have their id and each button will have a corresponding number, then when they select their name it will 
+//     //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
+//     ///always searching first last name
+//     // let fullNameArr = findFullName();
+//     // console.log(fullNameArr);
+// }
+
+
+
 function search() {
-    //ok all items in an array will have their id and each button will have a corresponding number, then when they select their name it will 
-    //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
-    ///always searching first last name
-    // let fullNameArr = findFullName();
-    // console.log(fullNameArr);
-}
+    // let space = document.getElementById("printSpace");
+    // space.innerHTML = "";
+    // for (let i = 0; i < passengerList.length; i++) {
+    //     space.innerHTML += `<div>${passengerList[i].firstName.value} ${passengerList[i].lastName.value}<div>`
+    // }
 
-
-
-function print() {
-    let space = document.getElementById("printSpace");
-    space.innerHTML = "";
-    for (let i = 0; i < passengerList.length; i++) {
-        space.innerHTML += `<div>${passengerList[i].firstName.value} ${passengerList[i].lastName.value}<div>`
-    }
-    // for(let i = 0; i < passengerList.length; i++){
-    //     document.getElementById("firstNamePrint").textContent = `First name: ${passengerList[i].firstName}`;
-    //     document.getElementById("lastNamePrint").textContent = passengerList[i].lastName;
-    //     document.getElementById("dobPrint").textContent = passengerList[i].dob;
-    //     document.getElementById("departingPrint").textContent = passengerList[i].pointA;
-    //     document.getElementById("arrivingPrint").textContent = passengerList[i].pointB;
-    //     document.getElementById("leavingPrint").textContent = passengerList[i].leavingDate;
-    //     document.getElementById("returningPrint").textContent = passengerList[i].returningDate;
-    //     ///need to calculat4e trip duration and put here
-    //     document.getElementById("bagsPrint").textContent = passengerList[i].bags;
-    //     document.getElementById("mealPrint").textContent = passengerList[i].meal;
-    //     document.getElementById("extrasPrint").textContent = passengerList[i].extras;
-    //     ///need to calculate trip cose and print
-    //     ///need to calculatee age and print
+    let options = document.getElementsByTagName('option').innerHTML;
+    console.log(options);
+    
+    // for (let i = 0; i < passengerList.length; i++) {
+        // }
+        // for(let i = 0; i < passengerList.length; i++){
+        //     document.getElementById("firstNamePrint").textContent = `First name: ${passengerList[i].firstName}`;
+        //     document.getElementById("lastNamePrint").textContent = passengerList[i].lastName;
+        //     document.getElementById("dobPrint").textContent = passengerList[i].dob;
+        //     document.getElementById("departingPrint").textContent = passengerList[i].pointA;
+        //     document.getElementById("arrivingPrint").textContent = passengerList[i].pointB;
+        //     document.getElementById("leavingPrint").textContent = passengerList[i].leavingDate;
+        //     document.getElementById("returningPrint").textContent = passengerList[i].returningDate;
+        //     ///need to calculat4e trip duration and put here
+        //     document.getElementById("bagsPrint").textContent = passengerList[i].bags;
+        //     document.getElementById("mealPrint").textContent = passengerList[i].meal;
+        //     document.getElementById("extrasPrint").textContent = passengerList[i].extras;
+        //     ///need to calculate trip cose and print
+        //     ///need to calculatee age and print
     // }
 }
 
