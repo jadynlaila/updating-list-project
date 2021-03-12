@@ -177,21 +177,21 @@ function addPassenger() {
         extras = 300;
     }
     console.log(passengerList);
-    updateList();
+    // updateList();
 
 }
 
 
-function updateList() {
-    // let list = document.getElementById('search');
-    for (let i = 0; i < passengerList.length; i++) {
-        console.log(passengerList[i].fullName);
-        let option = document.createElement('option');
-        option.text = passengerList[i].fullName;
-        list.add(option);
-    }
+// function updateList() {
+//     // let list = document.getElementById('search');
+//     for (let i = 0; i < passengerList.length; i++) {
+//         console.log(passengerList[i].fullName);
+//         let option = document.createElement('option');
+//         option.text = passengerList[i].fullName;
+//         list.add(option);
+//     }
 
-}
+// }
 
 
 function findExtras() {
@@ -239,14 +239,12 @@ function calculateExtrasCost() {
 
 
 
-// function search() {
-//     //ok all items in an array will have their id and each button will have a corresponding number, then when they select their name it will 
-//     //depending on which text you choose, it will add a # to a variable and then that variable will be used to search through the array to find your information. it'll then print out into each spot
-//     ///always searching first last name
-//     // let fullNameArr = findFullName();
-//     // console.log(fullNameArr);
-// }
-
+function print(){
+    for(let i = 0; i < passengerList.length; i++){
+        let nameSpace = document.getElementById('names');
+        nameSpace.innerHTML += `<div class="passengerList">${passengerList[i].idCount} | ${passengerList[i].fullName}</div>`
+    }
+}
 
 
 function search() {
@@ -256,8 +254,26 @@ function search() {
     //     space.innerHTML += `<div>${passengerList[i].firstName.value} ${passengerList[i].lastName.value}<div>`
     // }
 
-    let options = document.getElementsByTagName('option').innerHTML;
-    console.log(options);
+    let nameInput = document.getElementById('search').value;
+    for(let i = 0; i < passengerList.length; i++){
+        if(nameInput == passengerList[i].fullName){
+            console.log(passengerList[i].fullName);
+            document.getElementById('outfirstName').placeholder = `${passengerList[i].firstName}`;
+            document.getElementById('outlastName').placeholder = `${passengerList[i].lastName}`;
+            document.getElementById('outDoB').placeholder = `${passengerList[i].dob.value}`;
+            document.getElementById('outbags').placeholder = `${passengerList[i].bags}`;
+            document.getElementById('outPointA').placeholder = `${passengerList[i].pointA}`;
+            document.getElementById('outPointB').placeholder = `${passengerList[i].pointB}`;
+            document.getElementById('outLeavingDate').placeholder = `${passengerList[i].leavingDate}`;
+            document.getElementById('outReturningDate').placeholder = `${passengerList[i].returningDate}`;
+            document.getElementById('outduration').placeholder = `${passengerList[i].tripDuration}`;
+            document.getElementById('outmeal').innerHTML = `${passengerList[i].meal}`;
+            document.getElementById('outage').placeholder = `${passengerList[i].age}`;
+            document.getElementById('outfirstName').placeholder = `${passengerList[i].firstName}`;
+            document.getElementById('outfirstName').placeholder = `${passengerList[i].firstName}`;
+            document.getElementById('outfirstName').placeholder = `${passengerList[i].firstName}`;
+        }
+    }
     
     // for (let i = 0; i < passengerList.length; i++) {
         // }
